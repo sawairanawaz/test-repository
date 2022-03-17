@@ -1,4 +1,4 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="Highlight_WFType_Items" mva:VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="611,799" sap2010:WorkflowViewState.IdRef="Highlight_WFType_Items_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="Highlight_WFType_Items" mva:VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="921,1844" sap2010:WorkflowViewState.IdRef="Highlight_WFType_Items_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="42">
       <x:String>System.Activities</x:String>
@@ -59,9 +59,11 @@
       <AssemblyReference>System.Runtime.Serialization</AssemblyReference>
       <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
       <AssemblyReference>UiPath.UIAutomationNext</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
+      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="Attach to ACME site and highlight the selected type of work items" DisplayName="Highlight WFType Items" sap:VirtualizedContainerService.HintSize="621,734" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="Attach to ACME site and highlight the selected type of work items" DisplayName="Highlight WFType Items" sap:VirtualizedContainerService.HintSize="931,1779" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Default="https://acme-test.uipath.com/work-items" Name="ACME_website" />
       <Variable x:TypeArguments="x:String" Default="&lt;html title='ACME System 1*' /&gt;&lt;webctrl tag='HTML' /&gt;" Name="ACME_generic" />
@@ -74,7 +76,8 @@
         <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:InputDialog OptionsString="{x:Null}" sap2010:Annotation.AnnotationText="Choose workitem type" DisplayName="Input Dialog - WI type" sap:VirtualizedContainerService.HintSize="579,322" sap2010:WorkflowViewState.IdRef="InputDialog_1" IsPassword="False" Label="Select type:" Options="[{&quot;WI1&quot;,&quot;WI2&quot;,&quot;WI3&quot;,&quot;WI4&quot;,&quot;WI5&quot;}]" Title="WI type">
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="889,91" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;HighlightGit&quot;]" />
+    <ui:InputDialog OptionsString="{x:Null}" sap2010:Annotation.AnnotationText="Choose workitem type" DisplayName="Input Dialog - WI type" sap:VirtualizedContainerService.HintSize="889,322" sap2010:WorkflowViewState.IdRef="InputDialog_1" IsPassword="False" Label="Select type:" Options="[{&quot;WI1&quot;,&quot;WI2&quot;,&quot;WI3&quot;,&quot;WI4&quot;,&quot;WI5&quot;}]" Title="WI type">
       <ui:InputDialog.Result>
         <OutArgument x:TypeArguments="ui:GenericValue">[SelectedValue]</OutArgument>
       </ui:InputDialog.Result>
@@ -84,7 +87,7 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:InputDialog>
-    <If Condition="[String.IsNullOrEmpty(SelectedValue)]" DisplayName="If there is a selected value" sap:VirtualizedContainerService.HintSize="579,249" sap2010:WorkflowViewState.IdRef="If_1">
+    <If Condition="[String.IsNullOrEmpty(SelectedValue)]" DisplayName="If there is a selected value" sap:VirtualizedContainerService.HintSize="889,1163" sap2010:WorkflowViewState.IdRef="If_1">
       <If.Then>
         <ui:LogMessage DisplayName="Log Message - no value selected" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Invalid WI value selected&quot;]" />
       </If.Then>
